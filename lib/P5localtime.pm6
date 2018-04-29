@@ -22,11 +22,11 @@ my class TimeStruct is repr<CStruct> {
     }
 }
 
-my sub get-localtime(int64 $ is rw --> TimeStruct)
+my sub get-localtime(int64 is rw --> TimeStruct)
   is native is symbol<localtime> {*}
-my sub get-ctime(int64 $ is rw --> Str)
+my sub get-ctime(int64 is rw --> Str)
   is native is symbol<ctime> {*}
-my sub get-gmtime(int64 $ is rw --> TimeStruct)
+my sub get-gmtime(int64 is rw --> TimeStruct)
   is native is symbol<gmtime> {*}
 
 proto sub localtime(|) is export {*}

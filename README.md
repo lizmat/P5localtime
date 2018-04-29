@@ -12,8 +12,10 @@ SYNOPSIS
 
     #     0    1    2     3     4    5     6     7     8
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
+    say localtime(time, :scalar);
 
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday) = gmtime(time);
+    say gmtime(time, :scalar);
 
 DESCRIPTION
 ===========
@@ -22,6 +24,8 @@ This module tries to mimic the behaviour of the `localtime` and `gmtime` functio
 
 PORTING CAVEATS
 ---------------
+
+Since Perl 6 does not have a concept of scalar context, this must be mimiced by passing the `:scalar` named parameter.
 
 The implementation actually also returns the offset in GMT in seconds as element number 9, and the name of the timezone as element number 10, if supported by the OS.
 

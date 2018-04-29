@@ -1,5 +1,5 @@
 use v6.c;
-unit module P5localtime:ver<0.0.1>:auth<cpan:ELIZABETH>;
+unit module P5localtime:ver<0.0.2>:auth<cpan:ELIZABETH>;
 
 use NativeCall;
 
@@ -24,21 +24,31 @@ my class TimeStruct is repr<CStruct> {
 
 my sub get-localtime(int64 $ is rw --> TimeStruct)
   is native is symbol<localtime> {*}
+my sub get-ctime(int64 $ is rw --> Str)
+  is native is symbol<ctime> {*}
 my sub get-gmtime(int64 $ is rw --> TimeStruct)
   is native is symbol<gmtime> {*}
 
 proto sub localtime(|) is export {*}
-multi sub localtime(--> List:D) { localtime(time) }
-multi sub localtime(Int() $time --> List:D) {
+multi sub localtime(:$scalar) { localtime(time, :$scalar) }
+multi sub localtime(Int() $time, :$scalar) {
     my int64 $epoch = $time;  # must be a separate definition
-    get-localtime($epoch).result
+    $scalar
+      ?? get-ctime($epoch).chomp
+      !! get-localtime($epoch).result
 }
 
 proto sub gmtime(|) is export {*}
-multi sub gmtime(--> List:D) { localtime(time) }
-multi sub gmtime(Int() $time --> List:D) {
+multi sub gmtime(:$scalar) { gmtime(time, :$scalar) }
+multi sub gmtime(Int() $time, :$scalar) {
     my int64 $epoch = $time;  # must be a separate definition
-    get-gmtime($epoch).result
+    if $scalar {
+        $epoch -= get-localtime($epoch).tm_gmtoff;
+        get-ctime($epoch).chomp
+    }
+    else {
+        get-gmtime($epoch).result
+    }
 }
 
 =begin pod
@@ -53,8 +63,10 @@ P5localtime - Implement Perl 5's localtime / gmtime built-ins
 
     #     0    1    2     3     4    5     6     7     8
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
+    say localtime(time, :scalar);
 
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday) = gmtime(time);
+    say gmtime(time, :scalar);
 
 =head1 DESCRIPTION
 
@@ -62,6 +74,9 @@ This module tries to mimic the behaviour of the C<localtime> and C<gmtime>
 functions of Perl 5 as closely as possible.
 
 =head2 PORTING CAVEATS
+
+Since Perl 6 does not have a concept of scalar context, this must be mimiced
+by passing the C<:scalar> named parameter.
 
 The implementation actually also returns the offset in GMT in seconds as
 element number 9, and the name of the timezone as element number 10, if

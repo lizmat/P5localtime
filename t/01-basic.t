@@ -28,7 +28,7 @@ sub ok-time(@t, $type) {
 ok-time localtime, 'localtime';
 ok-time    gmtime, 'gmtime';
 
-ok-time localtime(1525034924),'localtime(1525034924)';
-ok-time    gmtime(1525034924),'gmtime(1525034924)';
+ok-time localtime(1525034924), 'localtime(1525034924)';
+ok-time    gmtime(1525034924), 'gmtime(1525034924)';
 
 # vim: ft=perl6 expandtab sw=4

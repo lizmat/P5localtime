@@ -2,8 +2,11 @@ Revision history for P5localtime
 
 {{$NEXT}}
 
+0.0.3  2018-05-21T15:34:47+02:00
+    - Added original Perl 5 documentation
+
 0.0.2  2018-04-30T00:23:18+02:00
-    - fixed gmtime() returning localtime()
+    - Fixed gmtime() returning localtime()
     - Added support for :scalar named parameter
 
 0.0.1  2018-04-29T23:10:31+02:00

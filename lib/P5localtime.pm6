@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5localtime:ver<0.0.3>:auth<cpan:ELIZABETH>;
+unit module P5localtime:ver<0.0.4>:auth<cpan:ELIZABETH>;
 
 use NativeCall;
 

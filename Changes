@@ -2,6 +2,9 @@ Revision history for P5localtime
 
 {{$NEXT}}
 
+0.0.4  2018-05-26T22:19:06+02:00
+    - Removed off-by-one errors in tests
+
 0.0.3  2018-05-21T15:34:47+02:00
     - Added original Perl 5 documentation
 

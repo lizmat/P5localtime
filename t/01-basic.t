@@ -14,14 +14,14 @@ ok !defined(P5localtime::{'&gmtime'}),
   'is &gmtime externally NOT accessible?';
 
 sub ok-list-time(@t, $type, \dst) {
-    ok 0 <= @t[0] <=  59, "is $type second in range";
+    ok 0 <= @t[0] <=  60, "is $type second in range";
     ok 0 <= @t[1] <=  59, "is $type minute in range";
     ok 0 <= @t[2] <=  23, "is $type hour in range";
-    ok 0 <= @t[3] <=  31, "is $type day in month in range";
+    ok 1 <= @t[3] <=  31, "is $type day in month in range";
     ok 0 <= @t[4] <=  11, "is $type month in range";
     ok 0 <= @t[5]       , "is $type year in range";
     ok 0 <= @t[6] <=   6, "is $type day in week in range";
-    ok 0 <= @t[7] <= 366, "is $type day in year in range";
+    ok 1 <= @t[7] <= 366, "is $type day in year in range";
     ok 0 <= @t[8] <= dst, "is $type is daylight saving time in range";
 }
 

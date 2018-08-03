@@ -2,6 +2,9 @@ Revision history for P5localtime
 
 {{$NEXT}}
 
+0.0.5  2018-08-03T13:34:21+02:00
+    - Fixed test that would fail if day < 10
+
 0.0.4  2018-05-26T22:19:06+02:00
     - Removed off-by-one errors in tests
 

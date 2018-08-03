@@ -33,7 +33,7 @@ ok-list-time    gmtime(1525034924), 'gmtime(1525034924)',    0;
 
 sub ok-scalar-time($t, $type) {
     dd $t unless
-    ok $t ~~ m/^ \w\w\w \s \w\w\w \s \d\d \s \d\d\:\d\d\:\d\d \s \d\d\d\d $/,
+    ok $t ~~ m/^ \w\w\w \s \w\w\w \s+ \d+ \s \d\d\:\d\d\:\d\d \s \d\d\d\d $/,
       "is $type string correctly formatted";
 }
 

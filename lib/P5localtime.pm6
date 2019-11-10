@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5localtime:ver<0.0.6>:auth<cpan:ELIZABETH>;
+unit module P5localtime:ver<0.0.7>:auth<cpan:ELIZABETH>;
 
 use NativeCall;
 
@@ -67,7 +67,7 @@ multi sub gmtime(Int() $time = time) {
 
 =head1 NAME
 
-P5localtime - Implement Perl 5's localtime / gmtime built-ins
+P5localtime - Implement Perl's localtime / gmtime built-ins
 
 =head1 SYNOPSIS
 
@@ -83,7 +83,7 @@ P5localtime - Implement Perl 5's localtime / gmtime built-ins
 =head1 DESCRIPTION
 
 This module tries to mimic the behaviour of the C<localtime> and C<gmtime>
-functions of Perl 5 as closely as possible.
+functions of Perl as closely as possible.
 
 =head1 ORIGINAL PERL 5 DOCUMENTATION
 
@@ -172,7 +172,7 @@ functions of Perl 5 as closely as possible.
 
 =head2 PORTING CAVEATS
 
-Since Perl 6 does not have a concept of scalar context, this must be mimiced
+Since Raku does not have a concept of scalar context, this must be mimiced
 by passing the C<Scalar> type as the first positional parameter.
 
 The implementation actually also returns the offset in GMT in seconds as
@@ -195,7 +195,7 @@ StackOverflow) for support in getting this to work.
 
 Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

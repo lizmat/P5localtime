@@ -1,6 +1,6 @@
-use v6.c;
+use v6.*;
 
-unit module P5localtime:ver<0.0.7>:auth<cpan:ELIZABETH>;
+unit module P5localtime:ver<0.0.8>:auth<cpan:ELIZABETH>;
 
 use NativeCall;
 
@@ -67,7 +67,7 @@ multi sub gmtime(Int() $time = time) {
 
 =head1 NAME
 
-P5localtime - Implement Perl's localtime / gmtime built-ins
+Raku port of Perl's localtime / gmtime built-ins
 
 =head1 SYNOPSIS
 
@@ -82,8 +82,8 @@ P5localtime - Implement Perl's localtime / gmtime built-ins
 
 =head1 DESCRIPTION
 
-This module tries to mimic the behaviour of the C<localtime> and C<gmtime>
-functions of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's C<localtime> and C<gmtime>
+built-ins as closely as possible in the Raku Programmming Language.
 
 =head1 ORIGINAL PERL 5 DOCUMENTATION
 
@@ -170,7 +170,9 @@ functions of Perl as closely as possible.
 
             Portability issues: "gmtime" in perlport.
 
-=head2 PORTING CAVEATS
+=head1 PORTING CAVEATS
+
+=head2 Mimicking scalar context
 
 Since Raku does not have a concept of scalar context, this must be mimiced
 by passing the C<Scalar> type as the first positional parameter.
@@ -178,6 +180,12 @@ by passing the C<Scalar> type as the first positional parameter.
 The implementation actually also returns the offset in GMT in seconds as
 element number 9, and the name of the timezone as element number 10, if
 supported by the OS.
+
+=head2 Depends on POSIX semantics
+
+This module depends on the availability of POSIX semantics.  This is
+generally not available on Windows, so this module will probably not work
+on Windows.
 
 =head1 AUTHOR
 
@@ -193,10 +201,12 @@ StackOverflow) for support in getting this to work.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
+
+# vim: expandtab shiftwidth=4

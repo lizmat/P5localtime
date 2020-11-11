@@ -1,7 +1,7 @@
 NAME
 ====
 
-P5localtime - Implement Perl's localtime / gmtime built-ins
+Raku port of Perl's localtime / gmtime built-ins
 
 SYNOPSIS
 ========
@@ -18,7 +18,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `localtime` and `gmtime` functions of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's `localtime` and `gmtime` built-ins as closely as possible in the Raku Programmming Language.
 
 ORIGINAL PERL 5 DOCUMENTATION
 =============================
@@ -107,11 +107,19 @@ ORIGINAL PERL 5 DOCUMENTATION
             Portability issues: "gmtime" in perlport.
 
 PORTING CAVEATS
----------------
+===============
+
+Mimicking scalar context
+------------------------
 
 Since Raku does not have a concept of scalar context, this must be mimiced by passing the `Scalar` type as the first positional parameter.
 
 The implementation actually also returns the offset in GMT in seconds as element number 9, and the name of the timezone as element number 10, if supported by the OS.
+
+Depends on POSIX semantics
+--------------------------
+
+This module depends on the availability of POSIX semantics. This is generally not available on Windows, so this module will probably not work on Windows.
 
 AUTHOR
 ======
@@ -128,7 +136,7 @@ JJ Merelo, Jan-Olof Hendig, Tobias Leich, Timo Paulssen and Christoph (on StackO
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

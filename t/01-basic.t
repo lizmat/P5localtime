@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 use Test;
 use P5localtime;
 %*ENV<RAKUDO_NO_DEPRECATIONS> = True;
@@ -48,4 +48,4 @@ ok-scalar-time    gmtime(Scalar, 1525034924), 'gmtime(1525034924) string';
 ok-scalar-time localtime(1525034924, :scalar), 'localtime(1525034924) string';
 ok-scalar-time    gmtime(1525034924, :scalar), 'gmtime(1525034924) string';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/P5localtime/workflows/test/badge.svg)](https://github.com/lizmat/P5localtime/actions)
+
 NAME
 ====
 
@@ -124,7 +126,7 @@ This module depends on the availability of POSIX semantics. This is generally no
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/P5localtime . Comments and Pull Requests are welcome.
 
@@ -136,7 +138,7 @@ JJ Merelo, Jan-Olof Hendig, Tobias Leich, Timo Paulssen and Christoph (on StackO
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

@@ -1,18 +1,10 @@
-use v6.*;
 use Test;
 use P5localtime;
-%*ENV<RAKUDO_NO_DEPRECATIONS> = True;
 
-plan 48;
+plan 42;
 
-ok defined(::('&localtime')),
-  'is &localtime imported?';
-ok !defined(P5localtime::{'&localtime'}),
-  'is &localtime externally NOT accessible?';
-ok defined(::('&gmtime')),
-  'is &gmtime imported?';
-ok !defined(P5localtime::{'&gmtime'}),
-  'is &gmtime externally NOT accessible?';
+ok defined(::('&localtime')), 'is &localtime imported?';
+ok defined(::('&gmtime')),    'is &gmtime imported?';
 
 sub ok-list-time(@t, $type, \dst) {
     ok 0 <= @t[0] <=  60, "is $type second in range";
@@ -40,12 +32,8 @@ sub ok-scalar-time($t, $type) {
 
 ok-scalar-time localtime(Scalar), 'localtime string';
 ok-scalar-time    gmtime(Scalar), 'gmtime string';
-ok-scalar-time localtime(:scalar), 'localtime string';
-ok-scalar-time    gmtime(:scalar), 'gmtime string';
 
 ok-scalar-time localtime(Scalar, 1525034924), 'localtime(1525034924) string';
 ok-scalar-time    gmtime(Scalar, 1525034924), 'gmtime(1525034924) string';
-ok-scalar-time localtime(1525034924, :scalar), 'localtime(1525034924) string';
-ok-scalar-time    gmtime(1525034924, :scalar), 'gmtime(1525034924) string';
 
 # vim: expandtab shiftwidth=4

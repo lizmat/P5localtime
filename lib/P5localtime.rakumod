@@ -1,7 +1,3 @@
-use v6.*;
-
-unit module P5localtime:ver<0.0.9>:auth<zef:lizmat>;
-
 use NativeCall;
 
 my class TimeStruct is repr<CStruct> {
@@ -37,11 +33,6 @@ multi sub localtime(Scalar:U, Int() $time = time) {
     my int64 $epoch = $time;
     get-ctime($epoch).chomp
 }
-multi sub localtime(Int() $time = time, :$scalar!)
-  is DEPRECATED('Scalar as first positional')
-{
-    localtime(Scalar, $time)
-}
 multi sub localtime(Int() $time = time) {
     my int64 $epoch = $time;
     get-localtime($epoch).list
@@ -52,11 +43,6 @@ multi sub gmtime(Scalar:U, Int() $time = time) {
     my int64 $epoch = $time;
     $epoch -= get-localtime($epoch).tm_gmtoff;
     get-ctime($epoch).chomp
-}
-multi sub gmtime(Int() $time = time, :$scalar!)
-  is DEPRECATED('Scalar as first positional')
-{
-    gmtime(Scalar, $time)
 }
 multi sub gmtime(Int() $time = time) {
     my int64 $epoch = $time;
@@ -191,6 +177,10 @@ on Windows.
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 Source can be located at: https://github.com/lizmat/P5localtime . Comments and
 Pull Requests are welcome.
 
@@ -201,7 +191,7 @@ StackOverflow) for support in getting this to work.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2023 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

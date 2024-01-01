@@ -2,6 +2,11 @@ Revision history for P5localtime
 
 {{$NEXT}}
 
+0.0.11  2024-01-01T21:28:09+01:00
+    - Incorporate fixes by Joelle Maslak
+    - Add sponsor link
+    - Update copyright year
+
 0.0.10  2023-08-10T18:26:47+02:00
     - Update test file extension
     - Removed deprecations

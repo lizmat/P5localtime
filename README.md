@@ -132,6 +132,8 @@ If you like this module, or what I’m doing more generally, committing to a [sm
 
 Source can be located at: https://github.com/lizmat/P5localtime . Comments and Pull Requests are welcome.
 
+If you like this module, or what I’m doing more generally, committing to a [small sponsorship](https://github.com/sponsors/lizmat/) would mean a great deal to me!
+
 ACKNOWLEDGEMENTS
 ================
 
@@ -140,7 +142,7 @@ JJ Merelo, Jan-Olof Hendig, Tobias Leich, Timo Paulssen and Christoph (on StackO
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018, 2019, 2020, 2021, 2023 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2023, 2024 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

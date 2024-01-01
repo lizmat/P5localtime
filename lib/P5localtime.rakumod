@@ -184,6 +184,10 @@ deal to me!
 Source can be located at: https://github.com/lizmat/P5localtime . Comments and
 Pull Requests are welcome.
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 =head1 ACKNOWLEDGEMENTS
 
 JJ Merelo, Jan-Olof Hendig, Tobias Leich, Timo Paulssen and Christoph (on
@@ -191,7 +195,7 @@ StackOverflow) for support in getting this to work.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021, 2023 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2023, 2024 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

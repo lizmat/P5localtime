@@ -1,7 +1,7 @@
 use Test;
 use P5localtime;
 
-plan 42;
+plan 51;
 
 ok defined(::('&localtime')), 'is &localtime imported?';
 ok defined(::('&gmtime')),    'is &gmtime imported?';
@@ -14,7 +14,7 @@ sub ok-list-time(@t, $type, \dst) {
     ok 0 <= @t[4] <=  11, "is $type month in range";
     ok 0 <= @t[5]       , "is $type year in range";
     ok 0 <= @t[6] <=   6, "is $type day in week in range";
-    ok 1 <= @t[7] <= 366, "is $type day in year in range";
+    ok 0 <= @t[7] <= 366, "is $type day in year in range";
     ok 0 <= @t[8] <= dst, "is $type is daylight saving time in range";
 }
 
@@ -23,6 +23,7 @@ ok-list-time    gmtime, 'gmtime',    0;
 
 ok-list-time localtime(1525034924), 'localtime(1525034924)', 1;
 ok-list-time    gmtime(1525034924), 'gmtime(1525034924)',    0;
+ok-list-time    gmtime(1704135816), 'gmtime(1704135816)',    0;
 
 sub ok-scalar-time($t, $type) {
     dd $t unless

@@ -177,10 +177,6 @@ on Windows.
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
-If you like this module, or what I’m doing more generally, committing to a
-L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
-deal to me!
-
 Source can be located at: https://github.com/lizmat/P5localtime . Comments and
 Pull Requests are welcome.
 
